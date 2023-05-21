@@ -83,7 +83,7 @@ public class UIManager : MonoBehaviour
         GameManager.singleton.currentLevelIndex = btn.transform.GetSiblingIndex(); ;    //set current level equal to sibling index on button
 		GameManager.shotCount=0;
 		GameManager.totalShotCount=0;
-		Debug.Break();
+		//Debug.Break();
         LevelManager.instance.SpawnLevel(GameManager.singleton.currentLevelIndex);      //spawn level
     }
 

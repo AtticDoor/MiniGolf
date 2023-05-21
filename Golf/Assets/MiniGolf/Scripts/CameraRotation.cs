@@ -14,17 +14,12 @@ public class CameraRotation : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
     }
 
     /// <summary>
-    /// Metod called to rotate camera
+    /// Method called to rotate camera
     /// </summary>
     /// <param name="XaxisRotation">Mouse X value</param>
     public void RotateCamera(float XaxisRotation)           

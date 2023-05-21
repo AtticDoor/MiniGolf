@@ -46,7 +46,6 @@ public class BallControl : MonoBehaviour
 	public void SetClubName(string name)
 	{
 		UIManager.instance.ClubText.text = "" + name;      //set the text
-		
 	}
 	public void SetClub()
 	{
@@ -55,20 +54,14 @@ public class BallControl : MonoBehaviour
 		  case 0: SetClubName("Wood");  	clubYForce=.15f; 	MaxForce=15;	forceModifier=5; 	break;
 		  case 1: SetClubName("Iron");  	clubYForce=.5f; 	MaxForce=6;		forceModifier=3; 	break;
 		  case 2: SetClubName("Putter");  	clubYForce=.02f; 	MaxForce=4;		forceModifier=2; 	break;
-
 		}
 	}
 	
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
 
         rgBody = GetComponent<Rigidbody>();                 //get reference to the rigidbody
     }
@@ -111,16 +104,15 @@ public class BallControl : MonoBehaviour
     // Unity native Method to detect colliding objects
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Destroyer")                              //if the object name is Destroyer
+        if (other.name == "Destroyer")                             
         {
-            //LevelManager.instance.LevelFailed();                    //Level Failed
             StartCoroutine(ResetBallPos(0, 0));
         }
-        else if (other.name == "Water")                              //if the object name is Destroyer
+        else if (other.name == "Water")                              
         {
             StartCoroutine(ResetBallPos(1, 2));
         }
-        else if (other.name == "Sand")                              //if the object name is Destroyer
+        else if (other.name == "Sand")                           
         {
 
             direction = Camera.main.transform.position - transform.position;
@@ -259,7 +251,7 @@ public class BallControl : MonoBehaviour
          }
  
  
-			yield return new WaitForSeconds(0.0f);
+        yield return new WaitForSeconds(0.0f);
         Resetting = false;
 
     }
