@@ -14,12 +14,19 @@ public class birdsEyeCam : MonoBehaviour
         else
         {
             transform.rotation = start.transform.rotation;
-
             StartCoroutine(MoveObject(transform,start.transform.position, end.transform.position, 8.0f));
         }
     }
-	
-	IEnumerator MoveObject (Transform thisTransform ,  Vector3 startPos,   Vector3 endPos, float time  ) 
+    private void Update()
+    {
+        //quit birds eye view if player clicks
+        if (Input.GetMouseButtonDown(0))
+        { 
+            UIManager.instance.ShowMenus(false, true, false, false);//activate game menu
+            Destroy(gameObject);
+        }
+    }
+    IEnumerator MoveObject (Transform thisTransform ,  Vector3 startPos,   Vector3 endPos, float time  ) 
 	{
 		float i = 0.0f;
 		float rate = 1.0f/time;
@@ -35,25 +42,25 @@ public class birdsEyeCam : MonoBehaviour
         Destroy(gameObject);
 	}
 
-    /*
-    IEnumerator DoAThingOverTime(Vector3 start, Vector3 end, float duration)
-    {
+
+    //IEnumerator DoAThingOverTime(Vector3 start, Vector3 end, float duration)
+    //{
 
 
-		for (float t = 0f; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            //right here, you can now use normalizedTime as the third parameter in any Lerp from start to end
-            transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0.0f, 1.0f, normalizedTime));
-            yield return null;
+		//for (float t = 0f; t < duration; t += Time.deltaTime)
+  //      {
+  //          float normalizedTime = t / duration;
+  //          //right here, you can now use normalizedTime as the third parameter in any Lerp from start to end
+  //          transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0.0f, 1.0f, normalizedTime));
+  //          yield return null;
 
 
 
 
 
-        }
-        transform.position = end; //without this, the value will end at something like 0.9992367
-		UIManager.instance.ShowMenus(false,true,false,false);//activate game menu
-        Destroy(gameObject);
-    }*/
+  //      }
+  //      transform.position = end; //without this, the value will end at something like 0.9992367
+		//UIManager.instance.ShowMenus(false,true,false,false);//activate game menu
+  //      Destroy(gameObject);
+  //  }
 }
