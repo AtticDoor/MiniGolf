@@ -111,25 +111,18 @@ public class BallControl : MonoBehaviour
     // Unity native Method to detect colliding objects
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Destroyer")                              //if the object name is Destroyer
-        {
-            //LevelManager.instance.LevelFailed();                    //Level Failed
-            StartCoroutine(ResetBallPos(0, 0));
-        }
-        else if (other.name == "Water")                              //if the object name is Destroyer
-        {
-            StartCoroutine(ResetBallPos(1, 2));
-        }
-        else if (other.name == "Sand")                              //if the object name is Destroyer
+        switch (other.name)
         {
 
-            direction = Camera.main.transform.position - transform.position;
-
-            GameObject.Instantiate(sandSplash, transform.position, Quaternion.LookRotation(direction));//, Vector3.up);
-        }
-        else if (other.name == "Hole")                              //if the object name is Hole
-        {
-            LevelManager.instance.LevelComplete();                  //Level Complete
+            case "Destroyer": StartCoroutine(ResetBallPos(0, 0)); break;  //Level Failed
+            case "Water": StartCoroutine(ResetBallPos(1, 2)); break;  //Level Failed
+            case "Sand":
+            {
+                direction = Camera.main.transform.position - transform.position;
+                GameObject.Instantiate(sandSplash, transform.position, Quaternion.LookRotation(direction));//, Vector3.up);
+                break;
+            }
+            case "Hole":  LevelManager.instance.LevelComplete();   break;               //Level Complete          
         }
     }
 

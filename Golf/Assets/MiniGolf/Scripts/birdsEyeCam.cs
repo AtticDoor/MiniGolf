@@ -35,7 +35,7 @@ public class birdsEyeCam : MonoBehaviour
         Destroy(gameObject);
 	}
 
-
+    /*
     IEnumerator DoAThingOverTime(Vector3 start, Vector3 end, float duration)
     {
 
@@ -55,5 +55,5 @@ public class birdsEyeCam : MonoBehaviour
         transform.position = end; //without this, the value will end at something like 0.9992367
 		UIManager.instance.ShowMenus(false,true,false,false);//activate game menu
         Destroy(gameObject);
-    }
+    }*/
 }
