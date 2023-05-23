@@ -53,6 +53,7 @@
     <UnityVersion>2020.2.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\MiniGolf\Scripts\KillRendererOnAwake.cs" />
     <Compile Include="Assets\MiniGolf\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\MiniGolf\Scripts\LevelManager.cs" />
     <Compile Include="Assets\MiniGolf\Scripts\CameraRotation.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="Assets\MiniGolf\Scripts\birdsEyeCam.cs" />
     <Compile Include="Assets\MiniGolf\Scripts\HoleHelper.cs" />
     <Compile Include="Assets\MiniGolf\Scripts\LevelFinalsScript.cs" />
-    <Compile Include="Assets\MiniGolf\Scripts\KillRendererOnAwake.cs" />
+    <Compile Include="Assets\mainLevelScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

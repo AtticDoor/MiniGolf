@@ -782,7 +782,7 @@ MonoBehaviour:
     type: 3}
   levelDatas:
   - shotCount: 0
-    levelPrefab: {fileID: 711297267708857532, guid: 94565644d3f882f49b7e7554037300ee,
+    levelPrefab: {fileID: 711297267708857532, guid: 7f88a8d989da3864a97c0c6520b61750,
       type: 3}
   - shotCount: 0
     levelPrefab: {fileID: 711297267708857532, guid: 7f88a8d989da3864a97c0c6520b61750,
@@ -799,6 +799,8 @@ MonoBehaviour:
   - shotCount: 0
     levelPrefab: {fileID: 9151569318176113239, guid: 4cc52574e74be8b42b8ed676437df73d,
       type: 3}
+  HoleName: {fileID: 1387382056}
+  HoleText: {fileID: 1794690508}
 --- !u!1 &479225599
 GameObject:
   m_ObjectHideFlags: 0

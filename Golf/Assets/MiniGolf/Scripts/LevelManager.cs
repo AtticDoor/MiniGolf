@@ -14,19 +14,15 @@ public class LevelManager : MonoBehaviour
     public Camera BirdsEyeCam;
     public LevelData[] levelDatas;          //list of all the available levels
 
+
     //public int shotCount = 0;              //count to store available shots
-	//public int totalShotCount=0;
+    //public int totalShotCount=0;
 
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else  Destroy(gameObject);
     }
 
     /// <summary>
@@ -37,16 +33,15 @@ public class LevelManager : MonoBehaviour
         Instantiate(BirdsEyeCam, Vector3.zero, transform.rotation);
         //we spawn the level prefab at required position
         Instantiate(levelDatas[levelIndex].levelPrefab, Vector3.zero, Quaternion.identity);
+        
         GameManager.shotCount = levelDatas[levelIndex].shotCount;                                   //set the available shots
         UIManager.instance.ShotText.text = ""+GameManager.shotCount;		                       //set the ShotText text
 
         GameObject birdsEyeStart = GameObject.Find("birdsEyeStart");
         //then we Instantiate the ball at spawn position
          ball = Instantiate(ballPrefab, ballSpawnPos, Quaternion.identity);
-        //ball= Instantiate(ballPrefab, birdsEyeStart.transform.position, Quaternion.identity);
         CameraFollow.instance.SetTarget(ball);                      //set the camera target
-        GameManager.singleton.gameStatus = GameStatus.Playing;      //set the game status to playing
-       
+        GameManager.singleton.gameStatus = GameStatus.Playing;      //set the game status to playing       
         //StartCoroutine(DoAThingOverTime(ball.transform.position,ballSpawnPos, 2.0f));
     }
 
@@ -107,9 +102,6 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator DoAThingOverTime(Vector3 start, Vector3 end, float duration)
     {
-
-
-
         for (float t = 0f; t < duration; t += Time.deltaTime)
         {
             float normalizedTime = t / duration;
